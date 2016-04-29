@@ -15,4 +15,8 @@ public class MyHandlers {
     public void onClickEnemy(View view) {
         Toast.makeText(view.getContext(), "onClickEnemy", Toast.LENGTH_SHORT).show();
     }
+
+    public static String toUpperString(String str) {
+        return str.toUpperCase();
+    }
 }

@@ -6,7 +6,9 @@
         <import type="com.example.databinding.databindingapplication.User" />
 
         <import type="java.util.List" />
-        
+
+        <import type="com.example.databinding.databindingapplication.MyHandlers" />
+
         <variable
             name="user"
             type="User" />
@@ -17,7 +19,7 @@
 
         <variable
             name="handlers"
-            type="com.example.databinding.databindingapplication.MyHandlers" />
+            type="MyHandlers" />
     </data>
 
     <LinearLayout
@@ -46,5 +48,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{((User) userList.get(userList.size()-1)).firstName}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{MyHandlers.toUpperString(user.firstName)}"/>
     </LinearLayout>
 </layout>
