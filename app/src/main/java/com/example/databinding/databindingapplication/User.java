@@ -21,7 +21,7 @@ public class User {
         return this.lastName;
     }
 
-    public boolean isFriends() {
+    public boolean getIsFriends() {
         return isFriends;
     }
 }
