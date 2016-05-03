@@ -6,14 +6,27 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.databinding.databindingapplication.databinding.ActivityMainBinding;
+// default name
+//import com.example.databinding.databindingapplication.databinding.ActivityMainBinding;
+
+// rename CusstomMainBinding
+//import com.example.databinding.databindingapplication.databinding.CusstomMainBinding;
+
+// change package
+//import com.example.databinding.databindingapplication.CusstomMainBinding;
+
+// cusstom full binding data class package
+import com.afra55.CusstomMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding mBinding;
+    // private ActivityMainBinding mBinding;
+
+    // cusstom package
+    private CusstomMainBinding mBinding;
     private List<User> mList;
 
     @Override
