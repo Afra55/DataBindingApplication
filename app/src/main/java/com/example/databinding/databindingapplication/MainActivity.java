@@ -3,6 +3,7 @@ package com.example.databinding.databindingapplication;
 import android.databinding.DataBindingUtil;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding  = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mList = new ArrayList<>();
-        User user = new User("Victor", "Yang", true);
+        User user = initUserData();
         mList.add(user);
         mBinding.setUser(user);
         mBinding.setHandlers(new MyHandlers());
@@ -42,10 +43,20 @@ public class MainActivity extends AppCompatActivity {
         handler.sendEmptyMessageDelayed(0, 5000);
     }
 
+    @NonNull
+    private User initUserData() {
+        User user = new User("Victor", "Yang", true);
+        user.setSex("man");
+        user.setInteresting("eat");
+        return user;
+    }
+
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             User user1 = new User("Afra55", "Yang", false);
+            user1.setSex("woman");
+            user1.setInteresting("sleep");
             mList.add(user1);
             mBinding.setUser(user1);
             mBinding.setUserList(mList);

@@ -8,6 +8,8 @@ public class User {
     private final String firstName;
     private final String lastName;
     private final boolean isFriends;
+    private String sex;
+    private String interesting;
 
     public User(String firstName, String lastName,boolean isFriends) {
         this.firstName = firstName;
@@ -23,5 +25,21 @@ public class User {
 
     public boolean getIsFriends() {
         return isFriends;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getInteresting() {
+        return interesting;
+    }
+
+    public void setInteresting(String interesting) {
+        this.interesting = interesting;
     }
 }
