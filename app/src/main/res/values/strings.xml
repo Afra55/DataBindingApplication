@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DataBinding Application</string>
+    <string name="format_string">you are %1$s, i am %2$s.</string>
 </resources>
