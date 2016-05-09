@@ -77,15 +77,15 @@
                 layout="@layout/layout_intresting"
                 bind:user="@{user}" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@string/format_string(user.firstName, user.lastName)}"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/format_string(user.firstName, user.lastName)}" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{@plurals/plurals_test(2,2)}"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@plurals/plurals_test(2,2)}" />
 
         </LinearLayout>
     </ScrollView>

@@ -29,15 +29,16 @@ public class MainActivity extends AppCompatActivity {
     // cusstom package
     private CusstomMainBinding mBinding;
     private List<User> mList;
+    private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding  = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mList = new ArrayList<>();
-        User user = initUserData();
-        mList.add(user);
-        mBinding.setUser(user);
+        initUserData();
+        mList.add(mUser);
+        mBinding.setUser(mUser);
         mBinding.setHandlers(new MyHandlers());
         mBinding.setUserList(mList);
         handler.sendEmptyMessageDelayed(0, 5000);
@@ -45,21 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
     @NonNull
     private User initUserData() {
-        User user = new User("Victor", "Yang", true);
-        user.setSex("man");
-        user.setInteresting("eat");
-        return user;
+        mUser = new User("Victor", "Yang", true);
+        mUser.setSex("man");
+        mUser.setIsFriends(true);
+        mUser.setInteresting("eat");
+        return mUser;
     }
 
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            User user1 = new User("Afra55", "Yang", false);
-            user1.setSex("woman");
-            user1.setInteresting("sleep");
-            mList.add(user1);
-            mBinding.setUser(user1);
-            mBinding.setUserList(mList);
+            mUser.setFirstName("Afra55");
+            mUser.setLastName("LuVicy");
+            mUser.setSex("woman");
+            mUser.setInteresting("sleep");
+            mUser.setIsFriends(false);
             return false;
         }
     });
