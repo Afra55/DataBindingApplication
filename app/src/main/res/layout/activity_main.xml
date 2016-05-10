@@ -26,6 +26,10 @@
         <variable
             name="handlers"
             type="MyHandlers" />
+
+        <variable
+            name="son"
+            type="com.example.databinding.databindingapplication.Son" />
     </data>
 
     <ScrollView
@@ -86,6 +90,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{@plurals/plurals_test(2,2)}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_dark"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{son.firstName + ' ' + son.lastName + ' ' + son.age}" />
 
         </LinearLayout>
     </ScrollView>
