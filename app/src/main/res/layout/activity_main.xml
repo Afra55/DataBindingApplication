@@ -17,6 +17,8 @@
 
         <import type="android.databinding.ObservableArrayMap" />
 
+        <import type="android.databinding.ObservableArrayList" />
+
         <variable
             name="user"
             type="User" />
@@ -36,6 +38,10 @@
         <variable
             name="map"
             type="ObservableArrayMap"/>
+
+        <variable
+            name="list"
+            type="ObservableArrayList" />
     </data>
 
     <ScrollView
@@ -111,6 +117,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text='@{map["company"] + " email:" + map["email"] }'
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{list[0] + " phone:" + list[1] }'
             />
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.databinding.databindingapplication;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableArrayList;
 import android.databinding.ObservableArrayMap;
 import android.os.Handler;
 import android.os.Message;
@@ -28,25 +29,27 @@ public class MainActivity extends AppCompatActivity {
 
     // cusstom package
     private CusstomMainBinding mBinding;
-    private List<User> mList;
+    private List<User> mUserList;
     private User mUser;
     private Son mSon;
     private ObservableArrayMap<String, Object> mMap;
+    private ObservableArrayList<Object> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding  = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mList = new ArrayList<>();
+        mUserList = new ArrayList<>();
         initUserData();
         initSonData();
 
-        mList.add(mUser);
+        mUserList.add(mUser);
         mBinding.setUser(mUser);
         mBinding.setSon(mSon);
         mBinding.setHandlers(new MyHandlers());
-        mBinding.setUserList(mList);
+        mBinding.setUserList(mUserList);
         mBinding.setMap(initMap());
+        mBinding.setList(initList());
 
         handler.sendEmptyMessageDelayed(0, 5000);
     }
@@ -74,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         return mMap;
     }
 
+    private ObservableArrayList initList() {
+        mList = new ObservableArrayList<>();
+        mList.add("I");
+        mList.add(11111111);
+        return mList;
+    }
+
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -86,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
             mSon.age.set(100);
 
             mMap.put("email", "b@b.com");
+
+            mList.clear();
+            mList.add("You");
+            mList.add("5656565");
             return false;
         }
     });
