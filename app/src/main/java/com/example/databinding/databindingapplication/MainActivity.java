@@ -1,9 +1,9 @@
 package com.example.databinding.databindingapplication;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableArrayMap;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private List<User> mList;
     private User mUser;
     private Son mSon;
+    private ObservableArrayMap<String, Object> mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         mBinding.setSon(mSon);
         mBinding.setHandlers(new MyHandlers());
         mBinding.setUserList(mList);
+        mBinding.setMap(initMap());
+
         handler.sendEmptyMessageDelayed(0, 5000);
     }
 
@@ -64,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
         return mSon;
     }
 
+    private ObservableArrayMap initMap() {
+        mMap = new ObservableArrayMap<>();
+        mMap.put("company", "home");
+        mMap.put("email", "a@a.com");
+        return mMap;
+    }
+
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -74,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
             mUser.setIsFriends(false);
 
             mSon.age.set(100);
+
+            mMap.put("email", "b@b.com");
             return false;
         }
     });

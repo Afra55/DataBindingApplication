@@ -15,6 +15,8 @@
 
         <import type="com.example.databinding.databindingapplication.MyHandlers" />
 
+        <import type="android.databinding.ObservableArrayMap" />
+
         <variable
             name="user"
             type="User" />
@@ -30,6 +32,10 @@
         <variable
             name="son"
             type="com.example.databinding.databindingapplication.Son" />
+        
+        <variable
+            name="map"
+            type="ObservableArrayMap"/>
     </data>
 
     <ScrollView
@@ -100,6 +106,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{son.firstName + ' ' + son.lastName + ' ' + son.age}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{map["company"] + " email:" + map["email"] }'
+            />
 
         </LinearLayout>
     </ScrollView>
