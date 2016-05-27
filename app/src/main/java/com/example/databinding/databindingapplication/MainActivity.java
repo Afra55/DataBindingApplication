@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         mBinding.setMap(initMap());
         mBinding.setList(initList());
 
+        mBinding.idsTv.setText("IDS Text OK");
+
         handler.sendEmptyMessageDelayed(0, 5000);
     }
 
@@ -100,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             mList.clear();
             mList.add("You");
             mList.add("5656565");
+
+            mBinding.idsTv.setText("IDS Text OK, I can change");
             return false;
         }
     });
