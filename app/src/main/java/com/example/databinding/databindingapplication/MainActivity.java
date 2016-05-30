@@ -3,25 +3,27 @@ package com.example.databinding.databindingapplication;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableArrayMap;
+import android.databinding.ViewStubProxy;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
+import android.view.ViewStub;
 
-// default name
-//import com.example.databinding.databindingapplication.databinding.ActivityMainBinding;
-
-// rename CusstomMainBinding
-//import com.example.databinding.databindingapplication.databinding.CusstomMainBinding;
-
-// change package
-//import com.example.databinding.databindingapplication.CusstomMainBinding;
-
-// cusstom full binding data class package
 import com.afra55.CusstomMainBinding;
+import com.example.databinding.databindingapplication.databinding.TestViewstubBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// default name
+//import com.example.databinding.databindingapplication.databinding.ActivityMainBinding;
+// rename CusstomMainBinding
+//import com.example.databinding.databindingapplication.databinding.CusstomMainBinding;
+// change package
+//import com.example.databinding.databindingapplication.CusstomMainBinding;
+// cusstom full binding data class package
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Son mSon;
     private ObservableArrayMap<String, Object> mMap;
     private ObservableArrayList<Object> mList;
+    private ViewStubProxy mViewStubProxy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         mBinding.setList(initList());
 
         mBinding.idsTv.setText("IDS Text OK");
+
+        mBinding.viewstub.setOnInflateListener(new ViewStub.OnInflateListener() {
+            @Override
+            public void onInflate(ViewStub stub, View inflated) {
+                TestViewstubBinding viewDataBinding = DataBindingUtil.bind(inflated);
+                User user = new User("xx", "gg", true);
+                viewDataBinding.setUser(user);
+            }
+        });
 
         handler.sendEmptyMessageDelayed(0, 5000);
     }
@@ -104,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
             mList.add("5656565");
 
             mBinding.idsTv.setText("IDS Text OK, I can change");
+
+            if (!mBinding.viewstub.isInflated()) {
+                mBinding.viewstub.getViewStub().inflate();
+            }
+
             return false;
         }
     });

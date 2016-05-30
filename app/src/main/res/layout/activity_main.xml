@@ -131,6 +131,12 @@
                 android:layout_height="wrap_content"
             />
 
+            <ViewStub
+                android:id="@+id/viewstub"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout="@layout/test_viewstub" />
+
         </LinearLayout>
     </ScrollView>
 </layout>
