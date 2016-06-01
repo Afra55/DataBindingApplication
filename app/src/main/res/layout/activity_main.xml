@@ -137,6 +137,16 @@
                 android:layout_width="match_parent"
                 android:layout="@layout/test_viewstub" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_blue_dark"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recylerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </ScrollView>
 </layout>

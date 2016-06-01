@@ -16,6 +16,10 @@ public class User extends BaseObservable{
     private String sex;
     private String interesting;
 
+    public User(String sex) {
+        setSex(sex);
+    }
+
     public User(String firstName, String lastName,boolean isFriends) {
         this.firstName = firstName;
         this.lastName = lastName;
