@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
 
     <!-- default -->
     <!--<data>-->
@@ -147,6 +148,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+            <com.example.databinding.databindingapplication.view.MTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                app:aaaa='@{user.lastName + "AAAAA"}'
+                app:bbbb="@{@color/colorPrimary}"/>
         </LinearLayout>
     </ScrollView>
 </layout>
