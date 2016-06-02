@@ -155,6 +155,13 @@
                 android:textColor="@android:color/white"
                 app:aaaa='@{user.lastName + "AAAAA"}'
                 app:bbbb="@{@color/colorPrimary}"/>
+
+            <com.example.databinding.databindingapplication.view.MTextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:background="@{@color/colorAccent}"
+                />
         </LinearLayout>
     </ScrollView>
 </layout>

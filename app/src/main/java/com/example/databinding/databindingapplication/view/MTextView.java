@@ -1,6 +1,8 @@
 package com.example.databinding.databindingapplication.view;
 
 import android.content.Context;
+import android.databinding.BindingConversion;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -26,5 +28,10 @@ public class MTextView extends TextView {
 
     public void setAaaa(String text) {
         setText(text);
+    }
+
+    @BindingConversion
+    public static ColorDrawable convertColorToDrawable(int color) {
+        return new ColorDrawable(color);
     }
 }
